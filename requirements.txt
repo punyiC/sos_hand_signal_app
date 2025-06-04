@@ -6,4 +6,4 @@ jinja2
 httpx
 pytz
 python-dateutil
-pip install websockets
+websockets
