@@ -1,8 +1,9 @@
 fastapi
-uvicorn
+uvicorn[standard]
 motor
 python-dotenv
 jinja2
 httpx
 pytz
 python-dateutil
+pip install websockets
