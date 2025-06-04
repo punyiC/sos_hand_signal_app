@@ -49,7 +49,7 @@ function initHomeMap() {
 window.initHomeMap = initHomeMap;
 
 window.addEventListener("DOMContentLoaded", () => {
-  socket = new WebSocket(`ws://${location.host}/ws/alerts`);
+  socket = new WebSocket(`wss://${location.host}/ws/alerts`);
 
   socket.onopen = () => console.log("✅ WebSocket connected");
   socket.onmessage = (event) => console.log("📩 Message from server:", event.data);
