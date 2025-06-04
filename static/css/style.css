@@ -1,0 +1,107 @@
+/* static/css/style.css */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f7f7f7;
+    color: #222;
+  }
+  
+  .app-header {
+    background: #d32f2f;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .tab-bar {
+    display: flex;
+    background: #eee;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .tab-bar button {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .tab-bar button:hover {
+    background: #ddd;
+  }
+  
+  .page {
+    display: none;
+    padding: 1rem;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  button#sos-button {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #d32f2f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button#sos-button:hover {
+    background-color: #b71c1c;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table th, table td {
+    border: 1px solid #aaa;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  table img {
+    border-radius: 4px;
+  }
+
+  /* legend styling */
+.leaflet-control .legend {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  #realtime-image-list img {
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: block;
+  }
+  
+  .realtime-image-item {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  @media (max-width: 480px) {
+    .tab-bar button {
+      font-size: 0.85rem;
+      padding: 0.75rem;
+    }
+  
+    button#sos-button {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }
+  

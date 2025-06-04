@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOS Alert App</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/static/js/global.js" defer></script>
+    <script src="/static/js/index.js" defer></script>
+    <script src="/static/js/history.js" defer></script>
+    <script src="/static/js/myarea.js" defer></script>
+
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="app-header">
+      <h1>SOS</h1>
+    </header>
+
+    <!-- Tab Bar -->
+    <nav class="tab-bar">
+      <button onclick="showPage('home-page')">Home</button>
+      <button onclick="showPage('history-page'); loadHistory()">History</button>
+      <button onclick="showPage('myarea-page')">My Area</button>
+    </nav>
+
+    <!-- Tab Content Area -->
+    <main>
+      <!-- Home Page -->
+      <section id="home-page" class="page active">
+        <div id="home-map" style="height: 300px;"></div>
+        <button id="sos-button">SOS ALERT</button>
+        <p id="sos-status" style="color: green; margin-top: 1rem;"></p>
+      </section>
+
+      <!-- History Page -->
+      <section id="history-page" class="page">
+        <h2>SOS History</h2>
+
+        <!-- ✅ Latest SOS Summary -->
+        <div class="latest-summary" style="margin-bottom: 1rem;">
+          <p><strong>Time:</strong> <span id="latest-time">-</span></p>
+          <p><strong>Location:</strong> <span id="latest-location">-</span></p>
+          <p><strong>Coordinates:</strong> <span id="latest-coord">-</span></p>
+          <p><strong>Confidence:</strong> <span id="latest-confidence">-</span></p>
+          <p><strong>Image:</strong><br/>
+            <img id="latest-image" src="" width="300" alt="ภาพจาก MongoDB">
+          </p>
+        </div>
+        
+
+        <!-- แผนที่ประวัติ -->
+        <div id="history-map" style="height: 300px; margin-bottom: 1rem;"></div>
+
+        <!-- ตารางประวัติ -->
+        <table id="history-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Coordinates</th>
+              <th>Confidence</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- My Area Page -->
+      <section id="myarea-page" class="page">
+        <div id="area-map" style="height: 400px;"></div>
+      </section>
+    </main>
+
+    <!-- Page Switcher Script -->
+    <script>
+      function showPage(pageId) {
+
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+
+        if (pageId === "home-page") window.initHomeMap?.();
+        if (pageId === "history-page") {
+           loadHistory?.();
+        // initHistoryMap?.();
+        }
+        if (pageId === "myarea-page") window.initAreaMap?.();
+    }
+
+    </script>
+  </body>
+</html>
+
