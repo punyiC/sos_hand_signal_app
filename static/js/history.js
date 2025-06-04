@@ -183,8 +183,8 @@ async function loadHistory() {
   }
 }
 
-// WebSocket สำหรับข้อมูล formatted_ai_data แบบ realtime
-const historySocket = new WebSocket("ws://127.0.0.1:8000/ws/formatted");
+const wsProtocol = location.protocol === "https:" ? "wss" : "ws";
+const historySocket = new WebSocket(`${wsProtocol}://${location.host}/ws/formatted`);
 
 historySocket.onmessage = (event) => {
   const data = JSON.parse(event.data);

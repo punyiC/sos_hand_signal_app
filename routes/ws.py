@@ -20,6 +20,19 @@ async def websocket_formatted_endpoint(websocket: WebSocket):
         print("❌ WebSocket client disconnected:", websocket.client)
         clients.remove(websocket)  
 
+@ws_router.websocket("/ws/alerts")
+async def websocket_alert(websocket: WebSocket):
+    await websocket.accept()
+    print("✅ WebSocket connected: /ws/alerts")
+
+    try:
+        while True:
+            data = await websocket.receive_text()
+            print("📩 Received from SOS Web:", data)
+
+    except WebSocketDisconnect:
+        print("❌ WebSocket /ws/alerts disconnected")
+
 
 async def broadcast_formatted_data(data: dict):
     # แปลง _id เป็น string และดึง generation_time
